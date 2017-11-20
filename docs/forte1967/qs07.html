@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  QS7</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-qs7">  QS7</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="pe01.html">
+                    pe01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe02.html">
+                    pe02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v1.html">
+                    pe03-v1.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v2.html">
+                    pe03-v2.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe04.html">
+                    pe04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe05.html">
+                    pe05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe06.html">
+                    pe06.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe07.html">
+                    pe07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe08.html">
+                    pe08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe09.html">
+                    pe09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs04.html">
+                    qs04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs05.html">
+                    qs05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs07.html">
+                    qs07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs08.html">
+                    qs08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs09.html">
+                    qs09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs10.html">
+                    qs10.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs18.html">
+                    qs18.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs19.html">
+                    qs19.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs20.html">
+                    qs20.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Pattern matching</p>
+
+        
+      
+        
+        <p>  “Write out the contents of the string variable in each case.”</p>
+
+        
+      
+        
+        <p>  a. Assign to <code>v</code> the matched pattern, then test its value.</p>
+
+        
+          <div class='highlight'><pre>a   str = '; *; **'
+    str   '*' arb . v ' '
+    v     '' :s(b)
+    output = 'a. Expected null string, actual: ' v</pre></div>
+        
+      
+        
+        <p>  b. Assign to <code>lft</code> and <code>rt</code> the matched patterns, then test
+     their values.</p>
+
+        
+          <div class='highlight'><pre>b   str = 'x / y = y ; z'
+    str   arb . lft '=' rem . rt
+b1  lft   'x / y ' :s(b2)
+    output = 'b1. Expected "x / y ", actual: ' lft
+b2  rt    ' y ; z' :s(end)
+    output = 'b2. Expected " y ; z", actual: ' rt
+
+end</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+;   PE09
+;   ====
+
+;   Description: Delete and replace two different string markers
+
+;   "A string contains markers of two types: `M1` and `M2`. Write
+;   a function `DLTRPL` to delete all occurrences of `M1` and
+;   replace all occurrences of `M2` with `M1`. Use as a test string
+;   a string named `STR` with contents as follows:
+;   `1111 222 333/444 555/666 `. In the function call, the blank
+;   is to correspond to the argument M1, the slash to the
+;   argument M2."
+
+f1        define('dltrpl(str,m1,m2)', 'f1-start') :(bgn)
+f1-start  s = str
+del       s m1 = ''                               :s(del)
+rpl       s m2 = m1                               :s(rpl)
+dltrpl    dltrpl = s                              :(return)
+
+bgn       str = "1111 222 333/444 555/666 "
+          result = dltrpl(str, " ", "/")
+          result "1111222333 444555 666" :s(ok)
+
+err       output = "Error; expected value of 'result' to be "
+          output = "'1111222333 444555 666', actual:" result   :(end)
+
+ok        output = "All tests passed"
+end

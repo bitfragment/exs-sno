@@ -1,0 +1,24 @@
+;   PE5
+;   ===
+
+;   Description: Delete delimited text
+
+;   "A string contains some relevant data and some irrelevant
+;   data. The irrelevant data is delimited in the string by a
+;   slash on left and right. Write a program to scan the string
+;   and delete the irrelevant data together with its delimiters.
+;   Let us call the string `TSTR` and for test purposes give it
+;   the contents `1=AA,/W/2=BB,3=CC,/X/1=DD,/Y/`."
+
+    tstr = '1=AA,/W/2=BB,3=CC,/X/1=DD,/Y/'
+
+;   Loop: for as long as we match arbitrary text between
+;   forward slashes, replace the match with a null string
+;   and continue. If the match fails, go to label `l1`.
+l0  tstr '/' arb '/' = '' :s(l0) f(l1)
+
+;   Test the result.
+l1  tstr '1=AA,2=BB,3=CC,1=DD,' :s(end)
+    output = 'Expected "1=AA,2=BB,3=CC,1=DD,", actual: ' tstr
+
+end

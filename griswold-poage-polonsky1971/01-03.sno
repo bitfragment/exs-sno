@@ -1,0 +1,34 @@
+;   Problem 1.3
+;   ===========
+
+;   Description: Compute sum of the first ten powers of *e*
+
+;   "Compute and print out the first ten powers of *e* and their sum."
+
+    e = 2.71828
+    i = 0
+    sum = 0
+    
+l1  next = e ** i
+    output = 'e^' i ' = ' next
+    sum = sum + next
+    i = i + 1
+    lt(i, 10)      :s(l1)
+
+    output = 'Sum of first ten powers of e: ' sum
+
+end
+
+; ```
+; e^0 = 1.
+; e^1 = 2.71828
+; e^2 = 7.3890461584
+; e^3 = 20.0854963914556
+; e^4 = 54.5980031309658
+; e^5 = 148.412659950842
+; e^6 = 403.427165291174
+; e^7 = 1096.62799486769
+; e^8 = 2980.94194588895
+; e^9 = 8103.03487267102
+; Sum of first ten powers of e: 12818.2354643505
+; ```

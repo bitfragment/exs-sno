@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  PE4</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-pe4">  PE4</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="pe01.html">
+                    pe01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe02.html">
+                    pe02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v1.html">
+                    pe03-v1.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v2.html">
+                    pe03-v2.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe04.html">
+                    pe04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe05.html">
+                    pe05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe06.html">
+                    pe06.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe07.html">
+                    pe07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe08.html">
+                    pe08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe09.html">
+                    pe09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs04.html">
+                    qs04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs05.html">
+                    qs05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs07.html">
+                    qs07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs08.html">
+                    qs08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs09.html">
+                    qs09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs10.html">
+                    qs10.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs18.html">
+                    qs18.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs19.html">
+                    qs19.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs20.html">
+                    qs20.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Find alliteration</p>
+
+        
+      
+        
+        <p>  “Write a program to find alliterative patterns in a literary text.”
+  (sample text from <em>Merchant of Venice</em>)</p>
+
+        
+          <div class='highlight'><pre>
+    ln1 = ' tell, me, where is fancy bred *q'
+    ln2 = ' or in the heart, or in the head *q'
+    ln3 = ' how begot, how nourished *q'
+    ln4 = ' reply, reply. '
+    tstdta = ln1 ln2 ln3 ln4
+    output = 'tstdta = ' tstdta
+
+l1  tstdta ' ' arb len(1) . ch arb . rst ' ' = ' ' :f(end)</pre></div>
+        
+      
+        
+        <p>  Discard <code>*q</code>, used to represent a question mark.</p>
+
+        
+          <div class='highlight'><pre>    ch '*' :s(l1)</pre></div>
+        
+      
+        
+        <p>  Strip end punctuation.</p>
+
+        
+          <div class='highlight'><pre>    rst ',' = ''
+    rst '.' = ''</pre></div>
+        
+      
+        
+        <p>  Add the header item in format <code>ch/ch rst</code>.</p>
+
+        
+          <div class='highlight'><pre>    lst = ch '/' ch rst ','</pre></div>
+        
+      
+        
+        <p>  Scan <code>tstdta</code> and add any words also beginning with <code>ch</code> to the list.</p>
+
+        
+          <div class='highlight'><pre>l2  tstdta ' ' ch arb . rst ' ' = ' ' :f(l3)
+    rst ',' = ''
+    rst '.' = ''
+    lst = lst ' ' ch rst ',' :(l2)</pre></div>
+        
+      
+        
+        <p>  When no more matches are found, print the current list and loop back
+  to get the next word in <code>tstdta</code>.</p>
+
+        
+          <div class='highlight'><pre>l3  output = lst :(l1)
+
+end</pre></div>
+        
+      
+        
+        <p>  Output:</p>
+<pre><code>  t/tell, the, the,
+  m/me,
+  w/where,
+  i/is, in, in,
+  f/fancy,
+  b/bred, begot,
+  o/or, or,
+  h/heart, head, how, how,
+  n/nourished,
+  r/reply, reply,
+</code></pre>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

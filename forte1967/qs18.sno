@@ -1,0 +1,17 @@
+;   QS18
+;   ====
+
+;   Description: Built-in functions: EQ
+
+    x = ''
+
+;   "a. What is the meaning of the following statement?"
+a   eq(size(x), '0') :s(b)
+    output = 'Error: expected size of "x" is 0, actual: ' size(x)
+
+;   "b. How does (a) compare with this one?"
+b   eq(x) :s(e0)
+    output = 'Error: expected success'
+
+e0  output = 'All tests passed'
+end

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  PE8</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-pe8">  PE8</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="pe01.html">
+                    pe01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe02.html">
+                    pe02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v1.html">
+                    pe03-v1.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v2.html">
+                    pe03-v2.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe04.html">
+                    pe04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe05.html">
+                    pe05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe06.html">
+                    pe06.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe07.html">
+                    pe07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe08.html">
+                    pe08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe09.html">
+                    pe09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs04.html">
+                    qs04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs05.html">
+                    qs05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs07.html">
+                    qs07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs08.html">
+                    qs08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs09.html">
+                    qs09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs10.html">
+                    qs10.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs18.html">
+                    qs18.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs19.html">
+                    qs19.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs20.html">
+                    qs20.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Function to reverse string</p>
+
+        
+      
+        
+        <p>  “Rewrite PE3 as a function named <code>RVS</code>. The first argument is 
+  <code>ST</code>. The second argument is <code>DTR</code> and stands for a delimiting
+   character that is to be specified in the function call.
+   Use as a test string in your main program a string named <code>ISTR</code>
+   which contains the following: <code>1,2,3,4,</code>.”</p>
+
+        
+      
+        
+        <p>   [Begin definition of <code>rvs</code>]</p>
+
+        
+          <div class='highlight'><pre>f1   define('rvs(st,dtr)')  :(bgn)</pre></div>
+        
+      
+        
+        <p>   Match text in <code>st</code> up to the delimiter <code>dtr</code>, store it as the
+   value of the name <code>ch</code>, and replace with a null string. If
+   there is no match, we’ve finished processing <code>st</code>, so return.</p>
+
+        
+          <div class='highlight'><pre>rvs  st arb . ch dtr = ''   :f(return)</pre></div>
+        
+      
+        
+        <p>   Loop: assign as a return value the concatenation of the value of
+   <code>ch</code>, the value of <code>dtr</code>, and the existing value of <code>rvs</code>
+   (that is, the existing return value up to this point), then
+   jump to the label <code>rvs</code>.</p>
+
+        
+          <div class='highlight'><pre>     rvs = ch dtr rvs       :(rvs)</pre></div>
+        
+      
+        
+        <p>   [End definition of <code>rvs</code>]</p>
+
+        
+          <div class='highlight'><pre>
+bgn  istr = '1,2,3,4,'
+     result = rvs(istr,',')
+     result '4,3,2,1'       :s(end)
+     output = 'Expected "4,3,2,1", actual: ' result
+
+end</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+;   PE3
+;   ===
+
+;   Description: Reverse a string
+
+;   Initially, I misread the exercise and wrote this longer
+;   version to handle `a,b,c,d` instead of `a,b,c,d,`.
+
+    istr = 'a,b,c,d'
+    
+;   First handle `a`, which will *not* be followed by a comma
+;   in the reversed string. Match up to the first occurrence
+;   of `,`, assign the match to `rstr`, then replace it with
+;   a null string.
+    istr   arb . rstr ',' = ''
+
+;   Now loop to handle `b` and `c`, jumping to `l2` when
+;   no comma delimiter is matched. Prepend each match to
+;   `rstr` along with a comma delimiter.
+l1  istr   arb . ch ',' = '' :f(l2)
+    rstr = ch ',' rstr :(l1)
+
+;   We're now out of comma delimiters, but still have the final
+;   element in the original string, `d`. Prepend it, followed by
+;   a comma delimiter.
+l2  rstr = istr ',' rstr
+
+    output = rstr
+
+    rstr 'd,c,b,a' :s(end)
+    output = 'Expected "d,c,b,a", actual: ' rstr
+
+end

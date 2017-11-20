@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  PE7</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-pe7">  PE7</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="pe01.html">
+                    pe01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe02.html">
+                    pe02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v1.html">
+                    pe03-v1.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v2.html">
+                    pe03-v2.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe04.html">
+                    pe04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe05.html">
+                    pe05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe06.html">
+                    pe06.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe07.html">
+                    pe07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe08.html">
+                    pe08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe09.html">
+                    pe09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs04.html">
+                    qs04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs05.html">
+                    qs05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs07.html">
+                    qs07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs08.html">
+                    qs08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs09.html">
+                    qs09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs10.html">
+                    qs10.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs18.html">
+                    qs18.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs19.html">
+                    qs19.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs20.html">
+                    qs20.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Text in context</p>
+
+        
+      
+        
+        <p>  “This programming exercise illustrates a general process for
+   which SNOBOL is well suited. We will call it the context-
+   identification process. Imagine that some character of 
+   special significance is embedded in a string in a context
+   delimited by a pair of known markers, say <code>*</code> on the left
+   and <code>$</code> on the right. We wish to write a program to scan
+   the string for each such significant character and to make
+   a list of the contexts in which it occurs. Two strings are
+   given.</p>
+<ol>
+<li>A string <code>CHLST</code> that contains a list of these significant
+characters: <code>1,3,5,</code>.</li>
+<li>A data string to be scanned:
+<code>*X3X$*5Y$*X1X$*Y5YY$*3Y$*1P$</code></li>
+</ol>
+<p>   For each of the characters in <code>CHLST</code> we will form a string
+   that contains the contexts in which the character was
+   embedded. The list for the character <code>1</code> will be called
+   <code>1CTX</code> (for <code>1</code>-contexts), the list for <code>3</code> will be called
+   <code>3CTX</code>, and so on. In each entry on the list the significant
+   character will be replaced by a blank. Thus, the first entry
+   in <code>1CTX</code> should be <code>X X</code>. The entries are to be delimited
+   by commas on the right. As soon as each <code>CTX</code> list is completed,
+   it is to be printed out. (Possibly you will have difficulty
+   locating the correct left delimiter <code>*</code>. If you cannot find
+   a way to do this, glance at the solution given.)”</p>
+
+        
+          <div class='highlight'><pre>
+
+     chlst = '1,3,5,'
+    
+     str = '*X3X$*5Y$*X1X$*Y5YY$*3Y$*1P$'</pre></div>
+        
+      
+        
+        <p>   Extract each special character to <code>chr</code> and replace it with
+   a null string. If this fails, we’ve exhausted <code>chlst</code>, 
+   so jump to label <code>end</code>.</p>
+
+        
+          <div class='highlight'><pre>l1   chlst arb . chr ',' = ''              :f(end)</pre></div>
+        
+      
+        
+        <p>   Make a copy of <code>str</code> to process.</p>
+
+        
+          <div class='highlight'><pre>     s = str</pre></div>
+        
+      
+        
+        <p>   Extract text between the delimiters to <code>chunk</code> and replace
+   it with a null string. If this fails, we’ve exhausted 
+   this copy of <code>str</code>, so jump to label <code>l4.</code></p>
+
+        
+          <div class='highlight'><pre>l2   s '*' arb . chunk '$' = ''            :f(l4)</pre></div>
+        
+      
+        
+        <p>   Replace the current value of <code>chr</code> in the extracted text 
+   with a space. If this fails, the extracted text didn’t
+   contain the value of <code>chr</code>, so jump to label <code>l2</code>.</p>
+
+        
+          <div class='highlight'><pre>     chunk chr = ' '                       :f(l2)</pre></div>
+        
+      
+        
+        <p>   Append the extracted text, with the current value of <code>chr</code> 
+   replaced by a space, to the value of a name formed by 
+   concatenating the value of <code>chr</code> with the string <code>CTX</code>.
+   Jump to label <code>l2</code> to continue processing the current copy 
+   of <code>str</code>.</p>
+
+        
+          <div class='highlight'><pre>l3   $(chr 'CTX') = $(chr 'CTX') chunk ',' :(l2)</pre></div>
+        
+      
+        
+        <p>   Print the current value of the name formed by concatenating
+   the value of <code>chr</code> with the string <code>CTX</code>, then jump to label
+   <code>l1</code> to extract the next special character.</p>
+
+        
+          <div class='highlight'><pre>l4   output = chr 'CTX: ' $(chr 'CTX')     :(l1)
+
+end</pre></div>
+        
+      
+        
+        <p>   Output:</p>
+<pre><code>     1CTX: X X, P,
+     3CTX: X X, Y,
+     5CTX:  Y,Y YY,
+</code></pre>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

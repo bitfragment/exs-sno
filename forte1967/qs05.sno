@@ -1,0 +1,33 @@
+;   QS5
+;   ===
+
+;   Description: Pattern matching
+
+;   "Determine whether the match succeeds or fails."
+
+a   str1 = 'a,b,c,d,e,f'
+    str2 = 'd,f'
+    str1   str2 :f(b)
+    output = 'a. Expected match failure'
+
+b   str1 = 'big,bigger,biggest'
+    str2 = 'g,b'
+    str1   str2 :s(c)
+    output = 'b. Expected match success'
+
+c   str1 = '**//**//**//***/**/'
+    str2 = '***//'
+    str1   str2 :f(d)
+    output = 'c. Expected match failure'
+
+d   str1 = '(./(/.(..(//(...)//.'
+    str2 = '.(//(...)/.'
+    str1   str2 :f(e)
+    output = 'd. Expected match failure'
+
+e   str1 = 'xyz'
+    str2 = 'xyz'
+    str1   str2 :s(end)
+    output = 'e. Expected match success'
+
+end

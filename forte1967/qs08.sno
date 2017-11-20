@@ -1,0 +1,33 @@
+;   QS8
+;   ===
+
+;   Description: Loops: pattern matching with replacement
+
+;   What is the value of `str`, `nstr`, and `c1` at the end
+;   of the program?
+
+    nstr = 'a,b,c,'
+    str  = '(x)(y)(z)'
+
+;   Extract match between parens, assign it to `c1`, and replace
+;   it with a null string until it no longer matches, at which point
+;   goto label `x`.
+l1  str    '(' arb . c1 ')' = '' :f(x)
+
+;   Loop: concatenate `nstr`, `c1`, and "," and goto label `l1`
+;   every time we reach this line.
+    nstr = nstr c1 ',' :(l1)
+
+;   `str` should be null string.
+x   str    '' :s(y)
+    output = 'str: Expected null string, actual: ' str
+
+;   `nstr` shoudl be `a,b,c,x,y,z,`.
+y   nstr   'a,b,c,x,y,z,' :s(z)
+    output = 'nstr: Expected "a,b,c,x,y,z, actual: ' nstr
+
+;   `c1` should be `z`.
+z   c1     'z' :s(end)
+    output = 'c1: Expected "z", actual: ' c1
+
+end

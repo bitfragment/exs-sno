@@ -1,0 +1,31 @@
+;   Problem 1.5
+;   ===========
+
+;   Description: Print array items in reverse order
+
+;   "Write a program that reads a deck of cards into an array.
+;   Let the first card indicate the number of cards that follow.
+;   Print out the cards in reverse order."
+
+    i = 5
+    arr = array(i)
+    arr<1> = 'A♦'
+    arr<2> = 'K♦'
+    arr<3> = 'Q♦'
+    arr<4> = 'J♦'
+    arr<5> = '10♦'
+
+lp  ge(i, 1)          :f(end)
+    output = arr<i>
+    i = i - 1         :(lp)
+
+end
+
+; Output:
+; ```
+; 10♦
+; J♦
+; Q♦
+; K♦
+; A♦
+; ```

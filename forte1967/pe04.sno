@@ -1,0 +1,53 @@
+;   PE4
+;   ===
+
+;   Description: Find alliteration
+
+;   "Write a program to find alliterative patterns in a literary text."
+;   (sample text from *Merchant of Venice*)
+
+    ln1 = ' tell, me, where is fancy bred *q'
+    ln2 = ' or in the heart, or in the head *q'
+    ln3 = ' how begot, how nourished *q'
+    ln4 = ' reply, reply. '
+    tstdta = ln1 ln2 ln3 ln4
+    output = 'tstdta = ' tstdta
+
+l1  tstdta ' ' arb len(1) . ch arb . rst ' ' = ' ' :f(end)
+
+;   Discard `*q`, used to represent a question mark.
+    ch '*' :s(l1)
+
+;   Strip end punctuation.
+    rst ',' = ''
+    rst '.' = ''
+
+;   Add the header item in format `ch/ch rst`.
+    lst = ch '/' ch rst ','
+
+;   Scan `tstdta` and add any words also beginning with `ch` to the list.
+l2  tstdta ' ' ch arb . rst ' ' = ' ' :f(l3)
+    rst ',' = ''
+    rst '.' = ''
+    lst = lst ' ' ch rst ',' :(l2)
+
+;   When no more matches are found, print the current list and loop back
+;   to get the next word in `tstdta`.
+l3  output = lst :(l1)
+
+end
+
+;
+;   Output:
+;   ```
+;   t/tell, the, the,
+;   m/me,
+;   w/where,
+;   i/is, in, in,
+;   f/fancy,
+;   b/bred, begot,
+;   o/or, or,
+;   h/heart, head, how, how,
+;   n/nourished,
+;   r/reply, reply,
+;   ```

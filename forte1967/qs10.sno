@@ -1,0 +1,16 @@
+;   QS10
+;   ====
+
+;   Description: Pattern matching
+
+;   "What would be the contents of `STR` after the second statement here?"
+
+    str = 'xxx.33.yyy'
+
+;   Discard entirely the match between `.` and `.`.
+    str arb . sbs1 '.' arb '.' rem . sbs2 = sbs2 sbs1
+
+    str 'yyyxxx' :s(end)
+    output = 'Expected "yyyxxx", actual: ' str
+
+end

@@ -1,0 +1,20 @@
+;   QS19
+;   ====
+
+;   Description: Built-in functions: LLE, LLT, LGT, IDENT
+
+;   Would these functions succeed or fail?
+
+a   a = 'a'
+    lle(a, '1') :f(b)
+    output = 'Error: "a is lexically greater than "1"'
+
+b   str = 'a/*/*..t1$$'
+    pt = 'a/*/*.t1$$'
+    ident(str, pt) :f(c)
+    output = 'Error: ' str ' and ' pt ' are not lexically equal'
+
+c   lgt('10', '0') llt('0', '10') :s(end)
+    output = 'Error: "10" is lexically greater than "0" and "0" is lexically less than "10"'
+
+end

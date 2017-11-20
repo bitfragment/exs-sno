@@ -1,0 +1,30 @@
+;   PE1
+;   ===
+
+;   Description: Concatenate strings
+
+;   "Write a program to carry out the following procedure..." (p. 91)
+
+a   astr = 'abc'
+    bstr = '123'
+
+;   Concatenate strings.
+    cstr = astr bstr
+    dstr = bstr astr
+
+;   Print.
+    output = cstr
+    output = dstr
+
+;   Test match: if `dstr` contains `astr`, goto label `b`.
+    dstr astr :s(b)
+    output = 'error' :(end)
+
+;   Assign value of `cstr` to `astr`; assign value of `cstr`
+;   concatenated with itself to `bstr`. Print both.
+b   astr = cstr
+    output = astr
+    bstr = cstr cstr
+    output = bstr
+
+end

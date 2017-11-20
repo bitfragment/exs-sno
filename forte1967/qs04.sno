@@ -1,0 +1,27 @@
+;   QS4
+;   ===
+
+;   Description: Concatenate strings
+
+;   "Write out the contents of `STR3` in each case."
+
+;   In each case, concatenate two strings, then test the result.
+
+a   str1 = 'x,y,z'
+    str2 = 'pdq'
+    str3 = str1   str2
+    str3 'x,y,zpdq' :s(b)
+    output = 'a. Expected "x,y,zpdq", actual: ' str3
+
+b   str1 = 'aaa'
+    str3 = str1   str1
+    str3 'aaaaaa' :s(c)
+    output = 'b. Expected "aaaaaa", actual: ' str3
+
+c   str1 = 'fiddle'
+    str2 = 'faddle'
+    str3 = str2   str1
+    str3 'faddlefiddle' :s(end)
+    output = 'c. Expected "faddlefiddle", actual: ' str3
+
+end

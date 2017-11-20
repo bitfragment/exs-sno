@@ -1,0 +1,20 @@
+;    Problem 1.2
+;    ===========
+
+;    Description: Delete the first eight characters of each input item
+
+;    "Write a program that deletes the first eight characters from each
+;    80-character input card and prints the remainder of the card."
+
+loop x = input
+     x len(8) =
+     output = 'trimmed: ' x :(loop)
+
+end
+
+; ```
+; xxxxxxxxfoo
+; trimmed: foo
+; zzzzzzzzbar
+; trimmed: bar
+; ```

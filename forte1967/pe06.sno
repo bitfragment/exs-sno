@@ -1,0 +1,47 @@
+;   PE6
+;   ===
+
+;   Description: Tabulate string elements
+
+;   "A string `CSTR` contains two character-classes of interest:
+;    the class of all `A`s and the class of all `Z`s. Write a
+;    program that will first make a pass through the string
+;    and count all the `A`s, saving the count in a string
+;    named `ACNT`, then make a second pass through the string
+;    to count all the `Z`s, saving that count in a string
+;    named `ZCNT`. When both passes have been completed,
+;    determine whether there are as many `A`s as `Z`s and print
+;    the answer. For test purposes, give `CSTR` the contents
+;    `AZAZAZYYZAZAXXAZ`."
+
+    cstr = 'AZAZAZYYZAZAXXAZ'
+
+;   Make a copy of the string so we can print the original.
+    x = cstr
+
+;   Set up counters.
+    acnt = 0
+    zcnt = 0
+    
+;   Loop: replace each `A` with a null string and increment
+;   the counter, until none are left; then jump to label `b`.
+a   x 'A' = '' :f(b)
+    acnt = acnt + 1 :(a)
+
+;   Loop to count occurrences of `Z`.
+b   x 'Z' = '' :f(c)
+    zcnt = zcnt + 1 :(b)
+
+;   Test for equality and print an appropriate message.
+c   eq(acnt, zcnt) :f(d)
+    output = 'The number of As in ' cstr ' (' acnt ') is equal to the number of Zs (' zcnt ')' :(end)
+d   output = 'The number of As in ' cstr ' (' acnt ') is not equal to the number of Zs (' zcnt ')'
+
+end
+
+
+;    Output:
+;    ```
+;    The number of As in AZAZAZYYZAZAXXAZ (6) is equal to
+;    the number of Zs (6)
+;    ```

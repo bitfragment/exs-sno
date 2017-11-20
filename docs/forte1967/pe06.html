@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  PE6</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-pe6">  PE6</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="pe01.html">
+                    pe01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe02.html">
+                    pe02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v1.html">
+                    pe03-v1.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe03-v2.html">
+                    pe03-v2.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe04.html">
+                    pe04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe05.html">
+                    pe05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe06.html">
+                    pe06.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe07.html">
+                    pe07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe08.html">
+                    pe08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="pe09.html">
+                    pe09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs04.html">
+                    qs04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs05.html">
+                    qs05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs07.html">
+                    qs07.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs08.html">
+                    qs08.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs09.html">
+                    qs09.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs10.html">
+                    qs10.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs18.html">
+                    qs18.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs19.html">
+                    qs19.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="qs20.html">
+                    qs20.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Tabulate string elements</p>
+
+        
+      
+        
+        <p>  “A string <code>CSTR</code> contains two character-classes of interest:
+   the class of all <code>A</code>s and the class of all <code>Z</code>s. Write a
+   program that will first make a pass through the string
+   and count all the <code>A</code>s, saving the count in a string
+   named <code>ACNT</code>, then make a second pass through the string
+   to count all the <code>Z</code>s, saving that count in a string
+   named <code>ZCNT</code>. When both passes have been completed,
+   determine whether there are as many <code>A</code>s as <code>Z</code>s and print
+   the answer. For test purposes, give <code>CSTR</code> the contents
+   <code>AZAZAZYYZAZAXXAZ</code>.”</p>
+
+        
+          <div class='highlight'><pre>
+    cstr = 'AZAZAZYYZAZAXXAZ'</pre></div>
+        
+      
+        
+        <p>  Make a copy of the string so we can print the original.</p>
+
+        
+          <div class='highlight'><pre>    x = cstr</pre></div>
+        
+      
+        
+        <p>  Set up counters.</p>
+
+        
+          <div class='highlight'><pre>    acnt = <span class="hljs-number">0</span>
+    zcnt = <span class="hljs-number">0</span></pre></div>
+        
+      
+        
+        <p>  Loop: replace each <code>A</code> with a null string and increment
+  the counter, until none are left; then jump to label <code>b</code>.</p>
+
+        
+          <div class='highlight'><pre>a   x 'A' = '' :f(b)
+    acnt = acnt + 1 :(a)</pre></div>
+        
+      
+        
+        <p>  Loop to count occurrences of <code>Z</code>.</p>
+
+        
+          <div class='highlight'><pre>b   x 'Z' = '' :f(c)
+    zcnt = zcnt + 1 :(b)</pre></div>
+        
+      
+        
+        <p>  Test for equality and print an appropriate message.</p>
+
+        
+          <div class='highlight'><pre>c   eq(acnt, zcnt) :f(d)
+    output = 'The number of As in ' cstr ' (' acnt ') is equal to the number of Zs (' zcnt ')' :(end)
+d   output = 'The number of As in ' cstr ' (' acnt ') is not equal to the number of Zs (' zcnt ')'
+
+end</pre></div>
+        
+      
+        
+        <p>   Output:</p>
+<pre><code>   The number of As in AZAZAZYYZAZAXXAZ (<span class="hljs-number">6</span>) is equal to
+   the number of Zs (<span class="hljs-number">6</span>)
+</code></pre>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

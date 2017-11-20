@@ -1,0 +1,48 @@
+;   QS9
+;   ===
+
+;   Description: Pattern matching: string length
+
+;   "Give the contents of the fixed-length string variable in each case."
+
+a   str = '/.,*/'
+;   Assign to `vbl` the single character immediately preceding `,`.
+    str   len(1) . vbl ','
+    vbl   '.' :s(b)
+    output = 'a. Expected ".", actual: ' vbl
+
+
+b   str = 'aaa'
+;   Assign to `h` the 11 characters preceding `x`.
+    str   len(11) . h 'x'
+    h     '' :s(c)
+    output = 'b. Expected null string, actual: ' h
+
+
+c   str = 'bears barely bear baring'
+;   Assign to `wd` the 6 characters following `s`.
+    str   's' len(6) . wd
+    wd    ' barel' :s(d)
+    output = 'c. Expected " barel", actual: ' wd
+
+
+d   str = 'never,never,never'
+;   Assign to `ltrs` the four characters following `n` and preceding ','.
+    str   'n' len(4) . ltrs ','
+    ltrs  'ever' :s(e)
+    output = 'd. Expected "ever", actual: ' ltrs
+
+
+e   str = 'some goats love groats'
+    str   'e' len(1) . b 'g' len(2) . c 'a' len(1) . d rem . rst
+    b     ' ' :s(e1)
+    output = 'e. Expected b to be null string, actual: ' b
+e1  c     'ro' :s(e2)
+    output = 'e. Expected c to be "ro", actual: ' c
+e2  d     't' :s(e3)
+    output = 'e. Expected d to be "t", actual: ' d
+e3  rst   's' :s(end)
+    output = 'e. Expected rst to be "s", actual: ' rst
+
+
+end

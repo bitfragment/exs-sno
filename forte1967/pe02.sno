@@ -1,0 +1,14 @@
+;   PE2
+;   ===
+
+;   Description: Replace elements of strings
+
+;   "Write a program to do the following..." (p. 92)
+
+;   Replace `+` with ` or `; replace `*` with ` and `.
+    st = 'pr1+pr2*pr3'
+    st   '+' = ' or '
+    st   '*' = ' and '
+    output = 'st now contains ' st
+
+end

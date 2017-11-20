@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  Problem 1.4</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-problem-1-4">  Problem 1.4</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="01-01.html">
+                    01-01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-02.html">
+                    01-02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-03.html">
+                    01-03.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-04.html">
+                    01-04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-05.html">
+                    01-05.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Encode a string</p>
+
+        
+      
+        
+        <p>  “Write a program that encodes messages by some simple
+  character replacement (for example, replace A by Z, B
+  by Y, etc.). Include punctuation in the encoding.”</p>
+
+        
+          <div class='highlight'><pre>
+    x = 'foobarbarous foo!'
+    
+    x = replace(x, 'a', 'Z')
+    x = replace(x, 'b', 'Y')
+    x = replace(x, 'c', 'X')
+    x = replace(x, 'd', 'W')
+    x = replace(x, 'e', 'V')
+    x = replace(x, 'f', 'U')
+    x = replace(x, 'g', 'T')
+    x = replace(x, 'h', 'S')
+    x = replace(x, 'i', 'R')
+    x = replace(x, 'j', 'Q')
+    x = replace(x, 'k', 'O')
+    x = replace(x, 'l', 'O')
+    x = replace(x, 'm', 'N')
+    x = replace(x, 'n', 'M')
+    x = replace(x, 'o', 'L')
+    x = replace(x, 'p', 'K')
+    x = replace(x, 'q', 'J')
+    x = replace(x, 'r', 'I')
+    x = replace(x, 's', 'H')
+    x = replace(x, 't', 'G')
+    x = replace(x, 'u', 'F')
+    x = replace(x, 'v', 'E')
+    x = replace(x, 'w', 'D')
+    x = replace(x, 'x', 'C')
+    x = replace(x, 'y', 'B')
+    x = replace(x, 'z', 'A')
+
+    x = replace(x, ' ', '+')
+    x = replace(x, '.', '_')
+    x = replace(x, '!', '-')
+
+    ident(x, 'ULLYZIYZILFH+ULL-') :s(end)
+    output = 'Error; expected "ULLYZIYZILFH+ULL-", actual: ' x
+
+end</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

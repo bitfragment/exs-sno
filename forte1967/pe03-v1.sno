@@ -1,0 +1,24 @@
+;   PE3
+;   ===
+
+;   Description: Reverse a string
+
+;   "Name a string ISTR and give it the contents `A,B,C,D,`.
+;   Using a string variable `*CH*`, reverse the order of the
+;   elements in `ISTR`, putting the reversed pattern into a
+;   string named `RSTR`. Print `RSTR`."
+
+    istr = 'a,b,c,d,'
+    
+;   Loop, prepending each match to `rstr` along with a
+;   comma delimiter and jumping to `l2` when no comma delimiter
+;   is matched.
+l1  istr   arb . ch ',' = '' :f(l2)
+    rstr = ch ',' rstr :(l1)
+
+l2  output = rstr
+
+    rstr 'd,c,b,a,' :s(end)
+    output = 'Expected "d,c,b,a,", actual: ' rstr
+
+end

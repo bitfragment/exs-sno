@@ -1,0 +1,31 @@
+;   QS20
+;   ====
+
+;   Description: Built-in functions: INTEGER and REMDR
+
+;   Does the function succeed or fail?
+
+a   t = '9'
+    x = 'x'
+;   integer(x / t) ; stops execution with message 'Illegal data type'
+
+b   h = '+1'
+    integer(h) :s(c)
+    output = 'Error: expected value of h to be an integer'
+
+c   y = '7'
+    z = '10' * y
+    integer(z) :s(d)
+    output = 'Error: expected value of z to be an integer'
+
+
+;   What value is printed?
+
+d   res = remdr('10','5')
+    eq(res, 0) :s(e)
+    output = 'Error; expected remainder of 0'
+
+e   q = 'num'
+;   remdr(q, 'a') ; stops execution with message 'Illegal data type'
+
+end

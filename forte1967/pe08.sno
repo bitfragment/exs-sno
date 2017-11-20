@@ -1,0 +1,30 @@
+;   PE8
+;   ===
+
+;   Description: Function to reverse string
+
+;   "Rewrite PE3 as a function named `RVS`. The first argument is 
+;   `ST`. The second argument is `DTR` and stands for a delimiting
+;    character that is to be specified in the function call.
+;    Use as a test string in your main program a string named `ISTR`
+;    which contains the following: `1,2,3,4,`."
+
+;    [Begin definition of `rvs`]
+f1   define('rvs(st,dtr)')  :(bgn)
+;    Match text in `st` up to the delimiter `dtr`, store it as the
+;    value of the name `ch`, and replace with a null string. If
+;    there is no match, we've finished processing `st`, so return.
+rvs  st arb . ch dtr = ''   :f(return)
+;    Loop: assign as a return value the concatenation of the value of
+;    `ch`, the value of `dtr`, and the existing value of `rvs`
+;    (that is, the existing return value up to this point), then
+;    jump to the label `rvs`.
+     rvs = ch dtr rvs       :(rvs)
+;    [End definition of `rvs`]
+
+bgn  istr = '1,2,3,4,'
+     result = rvs(istr,',')
+     result '4,3,2,1'       :s(end)
+     output = 'Expected "4,3,2,1", actual: ' result
+
+end

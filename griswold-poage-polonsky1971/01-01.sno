@@ -1,0 +1,26 @@
+;    Problem 1.1
+;    ===========
+
+;    Description: Print input that does not contain an ampersand
+
+;    "Write a program that reads in data cards, prints all cards 
+;    read in, and punches out a copy of all cards that do not
+;    contain an ampersand."
+
+loop x = input
+     x '&'                    :s(loop)
+     output = 'entered: ' x   :(loop)
+
+end
+
+; ```
+; foo
+; entered: foo
+; bar
+; entered: bar
+; baz
+; entered: baz
+; a&p
+; r&r
+; p&t
+; ```
