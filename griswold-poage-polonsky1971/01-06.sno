@@ -1,0 +1,74 @@
+;   Problem 1.6
+;   ===========
+
+;   Description: Hexadecimal to decimal conversion
+
+;   "Hexadecimal digits 0,1,...,9,A,B,C,D,E,F have the decimal
+;   equivalents of 0,1,...,15. Using a table to associate
+;   hexadecimal digits with corresponding decimal equivalents,
+;   define a function that converts a string of hexadecimal
+;   characters to its decimal equivalent."
+
+
+;   hex2dec()
+;   ---------
+;   Given a hexadecimal string, return a decimal value.
+f1  define('hex2dec(hex)', 't') :(bgn)
+
+t   t = table()
+    t<'0'> =  0
+    t<'1'> =  1
+    t<'2'> =  2
+    t<'3'> =  3
+    t<'4'> =  4
+    t<'5'> =  5
+    t<'6'> =  6
+    t<'7'> =  7
+    t<'8'> =  8
+    t<'9'> =  9
+    t<'a'> = 10
+    t<'b'> = 11
+    t<'c'> = 12
+    t<'d'> = 13
+    t<'e'> = 14
+    t<'f'> = 15
+        
+;   Size of hex input, to be used as exponent.        
+    sz = size(hex)
+
+;   Result of the conversion.
+    res = 0
+
+
+;   ### Loop performing the conversion
+
+;   Assign one character of `hex` to `ch`.
+lp  hex arb len(1) . ch = '' :f(hex2dec)
+
+;   Convert `ch`, representing one hex character, to decimal:
+;   look it up in the table; multiply its decimal value by
+;   16 to the power of its position in the hex string,
+;   beginning with `sz` - 1 and decrementing from left to right.
+    dec = t<ch> * (16 ** (sz - 1))
+
+;   Decrement the current exponent and update the current 
+;   result of the conversion, then jump to label `lp`.
+    sz = sz - 1
+    res = res + dec :(lp)
+
+
+;   ### Result
+
+;   When no characters remain in `hex`, we jump here from
+;   label `lp` and return the current value of `res`.
+hex2dec hex2dec = res :(return)
+
+
+
+; Test
+; ----
+bgn    
+test   res = hex2dec('1e240')
+       ident(res, 123456) :s(end)
+err    output = 'Error; expected 123456, actual: ' res
+end

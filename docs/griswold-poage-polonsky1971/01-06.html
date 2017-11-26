@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>  Problem 1.6</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1 id="-problem-1-6">  Problem 1.6</h1>
+
+          
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="01-01.html">
+                    01-01.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-02.html">
+                    01-02.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-03.html">
+                    01-03.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-04.html">
+                    01-04.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-05.html">
+                    01-05.sno
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="01-06.html">
+                    01-06.sno
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        <p>  Description: Hexadecimal to decimal conversion</p>
+
+        
+      
+        
+        <p>  “Hexadecimal digits 0,1,…,9,A,B,C,D,E,F have the decimal
+  equivalents of 0,1,…,15. Using a table to associate
+  hexadecimal digits with corresponding decimal equivalents,
+  define a function that converts a string of hexadecimal
+  characters to its decimal equivalent.”</p>
+
+        
+      
+        
+        <h2 id="-hex2dec-">  hex2dec()</h2>
+<p>  Given a hexadecimal string, return a decimal value.</p>
+
+        
+          <div class='highlight'><pre>f1  define('hex2dec(hex)', 't') :(bgn)
+
+t   t = table()
+    t&lt;'0'&gt; =  0
+    t&lt;'1'&gt; =  1
+    t&lt;'2'&gt; =  2
+    t&lt;'3'&gt; =  3
+    t&lt;'4'&gt; =  4
+    t&lt;'5'&gt; =  5
+    t&lt;'6'&gt; =  6
+    t&lt;'7'&gt; =  7
+    t&lt;'8'&gt; =  8
+    t&lt;'9'&gt; =  9
+    t&lt;'a'&gt; = 10
+    t&lt;'b'&gt; = 11
+    t&lt;'c'&gt; = 12
+    t&lt;'d'&gt; = 13
+    t&lt;'e'&gt; = 14
+    t&lt;'f'&gt; = 15</pre></div>
+        
+      
+        
+        <p>  Size of hex input, to be used as exponent.        </p>
+
+        
+          <div class='highlight'><pre>    sz = size(<span class="hljs-name">hex</span>)</pre></div>
+        
+      
+        
+        <p>  Result of the conversion.</p>
+
+        
+          <div class='highlight'><pre>    res = <span class="hljs-number">0</span></pre></div>
+        
+      
+        
+        <h3 id="loop-performing-the-conversion">Loop performing the conversion</h3>
+
+        
+      
+        
+        <p>  Assign one character of <code>hex</code> to <code>ch</code>.</p>
+
+        
+          <div class='highlight'><pre>lp  hex arb len(1) . ch = '' :f(hex2dec)</pre></div>
+        
+      
+        
+        <p>  Convert <code>ch</code>, representing one hex character, to decimal:
+  look it up in the table; multiply its decimal value by
+  16 to the power of its position in the hex string,
+  beginning with <code>sz</code> - 1 and decrementing from left to right.</p>
+
+        
+          <div class='highlight'><pre>    dec = <span class="hljs-literal">t</span>&lt;ch&gt; * (<span class="hljs-number">16</span> ** (<span class="hljs-name">sz</span> - <span class="hljs-number">1</span>))</pre></div>
+        
+      
+        
+        <p>  Decrement the current exponent and update the current 
+  result of the conversion, then jump to label <code>lp</code>.</p>
+
+        
+          <div class='highlight'><pre>    sz = sz - 1
+    res = res + dec :(lp)</pre></div>
+        
+      
+        
+        <h3 id="result">Result</h3>
+
+        
+      
+        
+        <p>  When no characters remain in <code>hex</code>, we jump here from
+  label <code>lp</code> and return the current value of <code>res</code>.</p>
+
+        
+          <div class='highlight'><pre>hex2dec hex2dec = res :(return)</pre></div>
+        
+      
+        
+        <h2 id="test">Test</h2>
+
+        
+      
+        
+        
+        
+          <div class='highlight'><pre>bgn    
+test   res = hex2dec('1e240')
+       ident(res, 123456) :s(end)
+err    output = 'Error; expected 123456, actual: ' res
+end</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>
