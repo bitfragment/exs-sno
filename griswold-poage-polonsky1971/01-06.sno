@@ -16,16 +16,6 @@
 f1  define('hex2dec(hex)', 't') :(bgn)
 
 t   t = table()
-    t<'0'> =  0
-    t<'1'> =  1
-    t<'2'> =  2
-    t<'3'> =  3
-    t<'4'> =  4
-    t<'5'> =  5
-    t<'6'> =  6
-    t<'7'> =  7
-    t<'8'> =  8
-    t<'9'> =  9
     t<'a'> = 10
     t<'b'> = 11
     t<'c'> = 12
@@ -46,10 +36,13 @@ t   t = table()
 lp  hex arb len(1) . ch = '' :f(hex2dec)
 
 ;   Convert `ch`, representing one hex character, to decimal:
-;   look it up in the table; multiply its decimal value by
-;   16 to the power of its position in the hex string,
-;   beginning with `sz` - 1 and decrementing from left to right.
-    dec = t<ch> * (16 ** (sz - 1))
+;   if it's an alphabetic character, look it up in the table;
+;   multiply its decimal value by 16 to the power of its position
+;   in the hex string, beginning with `sz` - 1 and decrementing
+;   from left to right.
+    '0123456789' ch :s(cmp)
+az  ch = t<ch>
+cmp dec = ch * (16 ** (sz - 1))
 
 ;   Decrement the current exponent and update the current 
 ;   result of the conversion, then jump to label `lp`.

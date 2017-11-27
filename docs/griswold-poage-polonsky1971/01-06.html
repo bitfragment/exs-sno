@@ -94,16 +94,6 @@
           <div class='highlight'><pre>f1  define('hex2dec(hex)', 't') :(bgn)
 
 t   t = table()
-    t&lt;'0'&gt; =  0
-    t&lt;'1'&gt; =  1
-    t&lt;'2'&gt; =  2
-    t&lt;'3'&gt; =  3
-    t&lt;'4'&gt; =  4
-    t&lt;'5'&gt; =  5
-    t&lt;'6'&gt; =  6
-    t&lt;'7'&gt; =  7
-    t&lt;'8'&gt; =  8
-    t&lt;'9'&gt; =  9
     t&lt;'a'&gt; = 10
     t&lt;'b'&gt; = 11
     t&lt;'c'&gt; = 12
@@ -140,12 +130,15 @@ t   t = table()
       
         
         <p>  Convert <code>ch</code>, representing one hex character, to decimal:
-  look it up in the table; multiply its decimal value by
-  16 to the power of its position in the hex string,
-  beginning with <code>sz</code> - 1 and decrementing from left to right.</p>
+  if it’s an alphabetic character, look it up in the table;
+  multiply its decimal value by 16 to the power of its position
+  in the hex string, beginning with <code>sz</code> - 1 and decrementing
+  from left to right.</p>
 
         
-          <div class='highlight'><pre>    dec = <span class="hljs-literal">t</span>&lt;ch&gt; * (<span class="hljs-number">16</span> ** (<span class="hljs-name">sz</span> - <span class="hljs-number">1</span>))</pre></div>
+          <div class='highlight'><pre>    '0123456789' ch :s(cmp)
+az  ch = t&lt;ch&gt;
+cmp dec = ch * (16 ** (sz - 1))</pre></div>
         
       
         
