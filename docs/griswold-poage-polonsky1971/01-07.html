@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>   Problem 1.2</title>
+  <title>  Problem 1.7</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -14,7 +14,7 @@
       <div class="header">
         
           
-          <h1 id="-problem-1-2">   Problem 1.2</h1>
+          <h1 id="-problem-1-7">  Problem 1.7</h1>
 
           
         
@@ -80,29 +80,44 @@
 
       
         
-        <p>   Description: Delete the first eight characters of each input item</p>
+        <p>  Description: Binary tree</p>
 
         
       
         
-        <p>   “Write a program that deletes the first eight characters from each
-   80-character input card and prints the remainder of the card.”</p>
+        <p>  “Let a binary tree be a data structure composed of nodes that contain
+  three fields: value, left son, right son. A tree has a distinguished
+  node, the root, that is not the left son or right son of any node.</p>
+<p>  a. Define a data type BNODE with fields appropriate for a binary
+  tree.</p>
+<p>  b. Generate a binary tree with three nodes such that the value of
+  the root node is +, the value of the left son is X, and the value
+  of the right son is Y.</p>
+<p>  c. Define a function LLIST that prints the values of the nodes of
+  a binary tree in the following order.</p>
+<ol>
+<li>value of the root</li>
+<li>value of the nodes in the left subtree</li>
+<li>value of the nodes in the right subtree”</li>
+</ol>
 
         
           <div class='highlight'><pre>
-loop x = input
-     x len(8) =
-     output = 'trimmed: ' x :(loop)
 
+    data('bnode(val,L,R)')
+    
+    t = bnode('+','X','Y')
+    
+    
+    define('lst(t)', 'p') :(bgn)
+p   output = 'Root: ' val(t)
+    output = 'Left subtree: ' L(t)
+    output = 'Right subtree: ' R(t)
+lst :(return)
+    
+
+bgn lst(t)
 end</pre></div>
-        
-      
-        
-        <pre><code>xxxxxxxxfoo
-trimmed: foo
-zzzzzzzzbar
-trimmed: bar
-</code></pre>
         
       
       <div class="fleur">h</div>

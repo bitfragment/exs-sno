@@ -12,3 +12,4 @@ Written in Snobol4 and compiled with [The Macro Implementation of SNOBOL4 in C (
 * [Problem 1.4](01-04.html)  Encode a string
 * [Problem 1.5](01-05.html)  Print array items in reverse order
 * [Problem 1.6](01-06.html)  Hexadecimal to decimal conversion
+* [Problem 1.7](01-07.html)  Binary tree

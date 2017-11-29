@@ -1,0 +1,38 @@
+;   Problem 1.7
+;   ===========
+
+;   Description: Binary tree
+
+;   "Let a binary tree be a data structure composed of nodes that contain
+;   three fields: value, left son, right son. A tree has a distinguished
+;   node, the root, that is not the left son or right son of any node.
+;   
+;   a. Define a data type BNODE with fields appropriate for a binary
+;   tree.
+;   
+;   b. Generate a binary tree with three nodes such that the value of
+;   the root node is +, the value of the left son is X, and the value
+;   of the right son is Y.
+;   
+;   c. Define a function LLIST that prints the values of the nodes of
+;   a binary tree in the following order.
+;   
+;   1. value of the root
+;   2. value of the nodes in the left subtree
+;   3. value of the nodes in the right subtree"
+
+
+    data('bnode(val,L,R)')
+    
+    t = bnode('+','X','Y')
+    
+    
+    define('lst(t)', 'p') :(bgn)
+p   output = 'Root: ' val(t)
+    output = 'Left subtree: ' L(t)
+    output = 'Right subtree: ' R(t)
+lst :(return)
+    
+
+bgn lst(t)
+end
